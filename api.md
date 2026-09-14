@@ -1,0 +1,190 @@
+# Demo API (Scalar Galaxy) Python API
+
+Complete reference of every operation, grouped by resource. See [the README](./README.md) for usage and configuration.
+
+## Contents
+
+- [`Planets`](#planets)
+  - [Get all planets](#get-all-planets)
+  - [Create a planet](#create-a-planet)
+  - [Get a planet](#get-a-planet)
+  - [Update a planet](#update-a-planet)
+  - [Delete a planet](#delete-a-planet)
+  - [Upload an image to a planet](#upload-an-image-to-a-planet)
+- [`CelestialBodies`](#celestialbodies)
+  - [Create a celestial body](#create-a-celestial-body)
+- [`Authentication`](#authentication)
+  - [Create a user](#create-a-user)
+  - [Get a token](#get-a-token)
+  - [Get authenticated user](#get-authenticated-user)
+
+## Setup
+
+```python
+import os
+
+from demo_api_scalar_galaxy import DemoAPIScalarGalaxy
+
+client = DemoAPIScalarGalaxy(
+    bearer_auth=os.environ.get("BEARER_AUTH"),
+)
+```
+
+## `Planets`
+
+Everything about planets
+
+### Get all planets
+
+It's easy to say you know them all, but do you really? Retrieve all the planets and check whether you missed one.
+
+| Direction | Type |
+| --- | --- |
+| Request | [`PlanetListParams`](./src/demo_api_scalar_galaxy/types/planet_list_params.py) |
+| Response | [`PlanetListResponse`](./src/demo_api_scalar_galaxy/types/planet_list_response.py) |
+
+```python
+planet = client.planets.list(
+    limit=10,
+    offset=0,
+)
+```
+
+### Create a planet
+
+Time to play god and create a new planet. What do you think? Ah, don't think too much. What could go wrong anyway?
+
+| Direction | Type |
+| --- | --- |
+| Request | [`PlanetCreateParams`](./src/demo_api_scalar_galaxy/types/planet_create_params.py) |
+| Response | [`Planet`](./src/demo_api_scalar_galaxy/types/planet.py) |
+
+```python
+planet = client.planets.create(
+    name="Mars",
+    type="terrestrial",
+)
+```
+
+### Get a planet
+
+You'll better learn a little bit more about the planets. It might come in handy once space travel is available for everyone.
+
+| Direction | Type |
+| --- | --- |
+| Response | [`Planet`](./src/demo_api_scalar_galaxy/types/planet.py) |
+
+```python
+planet = client.planets.retrieve(
+    planet_id=1,
+)
+```
+
+### Update a planet
+
+Sometimes you make mistakes, that's fine. No worries, you can update all planets.
+
+| Direction | Type |
+| --- | --- |
+| Request | [`PlanetUpdateParams`](./src/demo_api_scalar_galaxy/types/planet_update_params.py) |
+| Response | [`Planet`](./src/demo_api_scalar_galaxy/types/planet.py) |
+
+```python
+planet = client.planets.update(
+    planet_id=1,
+    name="Mars",
+    type="terrestrial",
+)
+```
+
+### Delete a planet
+
+This endpoint was used to delete planets. Unfortunately, that caused a lot of trouble for planets with life. So, this endpoint is now deprecated and should not be used anymore.
+
+```python
+client.planets.delete(
+    planet_id=1,
+)
+```
+
+### Upload an image to a planet
+
+Got a crazy good photo of a planet? Share it with the world!
+
+| Direction | Type |
+| --- | --- |
+| Request | [`PlanetUploadImageParams`](./src/demo_api_scalar_galaxy/types/planet_upload_image_params.py) |
+| Response | [`PlanetUploadImageResponse`](./src/demo_api_scalar_galaxy/types/planet_upload_image_response.py) |
+
+```python
+planet = client.planets.upload_image(
+    planet_id=1,
+)
+```
+
+## `CelestialBodies`
+
+Celestial bodies are the planets and satellites in the Scalar Galaxy.
+
+### Create a celestial body
+
+| Direction | Type |
+| --- | --- |
+| Request | [`CelestialBodyCreateParams`](./src/demo_api_scalar_galaxy/types/celestial_body_create_params.py) |
+| Response | [`CelestialBodyCreateResponse`](./src/demo_api_scalar_galaxy/types/celestial_body_create_response.py) |
+
+```python
+celestial_body = client.celestial_bodies.create(
+    name="Mars",
+    type="terrestrial",
+)
+```
+
+## `Authentication`
+
+Some endpoints are public, but some require authentication. We provide all the required endpoints to create an account and authorize yourself.
+
+### Create a user
+
+Time to create a user account, eh?
+
+| Direction | Type |
+| --- | --- |
+| Request | [`AuthenticationCreateUserParams`](./src/demo_api_scalar_galaxy/types/authentication_create_user_params.py) |
+| Response | [`User`](./src/demo_api_scalar_galaxy/types/user.py) |
+
+```python
+authentication = client.authentication.create_user(
+    name="Marc",
+    email="marc@scalar.com",
+    password="i-love-scalar",
+)
+```
+
+### Get a token
+
+Yeah, this is the boring security stuff. Just get your super secret token and move on.
+
+| Direction | Type |
+| --- | --- |
+| Request | [`AuthenticationCreateTokenParams`](./src/demo_api_scalar_galaxy/types/authentication_create_token_params.py) |
+| Response | [`Token`](./src/demo_api_scalar_galaxy/types/token.py) |
+
+```python
+authentication = client.authentication.create_token(
+    email="marc@scalar.com",
+    password="i-love-scalar",
+)
+```
+
+### Get authenticated user
+
+Find yourself they say. That's what you can do here.
+
+| Direction | Type |
+| --- | --- |
+| Response | [`User`](./src/demo_api_scalar_galaxy/types/user.py) |
+
+```python
+authentication = client.authentication.list_me()
+```

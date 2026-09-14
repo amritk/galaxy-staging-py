@@ -1,0 +1,32 @@
+[project]
+name = "demo-api-scalar-galaxy"
+version = "0.1.0" # x-release-please-version
+description = "The Scalar Galaxy is an example OpenAPI document to test OpenAPI tools and libraries. It's a fictional universe with fictional planets and fictional data. Get all the data for all planets."
+readme = "README.md"
+license = "Apache-2.0"
+authors = [
+  { name = "Demo API (Scalar Galaxy)" },
+]
+requires-python = ">= 3.9"
+dependencies = [
+  "httpx>=0.23.0, <1",
+  "pydantic>=1.9.0, <3",
+  "typing-extensions>=4.14, <5",
+  "anyio>=3.5.0, <5",
+  "distro>=1.7.0, <2",
+  "sniffio",
+]
+
+[project.optional-dependencies]
+aiohttp = ["aiohttp", "httpx_aiohttp>=0.1.9"]
+webhooks = ["standardwebhooks >= 1.0.1, < 2"]
+
+[build-system]
+requires = ["hatchling>=1.18.0"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/demo_api_scalar_galaxy"]
+
+[tool.ruff]
+line-length = 120
