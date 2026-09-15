@@ -23,7 +23,7 @@ Complete reference of every operation, grouped by resource. See [the README](./R
 ```python
 import os
 
-from demo_api_scalar_galaxy import DemoAPIScalarGalaxy
+from amritk_galaxy_staging import DemoAPIScalarGalaxy
 
 client = DemoAPIScalarGalaxy(
     bearer_auth=os.environ.get("BEARER_AUTH"),
@@ -40,8 +40,8 @@ It's easy to say you know them all, but do you really? Retrieve all the planets 
 
 | Direction | Type |
 | --- | --- |
-| Request | [`PlanetListParams`](./src/demo_api_scalar_galaxy/types/planet_list_params.py) |
-| Response | [`PlanetListResponse`](./src/demo_api_scalar_galaxy/types/planet_list_response.py) |
+| Request | [`PlanetListParams`](./src/amritk_galaxy_staging/types/planet_list_params.py) |
+| Response | [`PlanetListResponse`](./src/amritk_galaxy_staging/types/planet_list_response.py) |
 
 ```python
 planet = client.planets.list(
@@ -56,8 +56,8 @@ Time to play god and create a new planet. What do you think? Ah, don't think too
 
 | Direction | Type |
 | --- | --- |
-| Request | [`PlanetCreateParams`](./src/demo_api_scalar_galaxy/types/planet_create_params.py) |
-| Response | [`Planet`](./src/demo_api_scalar_galaxy/types/planet.py) |
+| Request | [`PlanetCreateParams`](./src/amritk_galaxy_staging/types/planet_create_params.py) |
+| Response | [`Planet`](./src/amritk_galaxy_staging/types/planet.py) |
 
 ```python
 planet = client.planets.create(
@@ -72,7 +72,7 @@ You'll better learn a little bit more about the planets. It might come in handy 
 
 | Direction | Type |
 | --- | --- |
-| Response | [`Planet`](./src/demo_api_scalar_galaxy/types/planet.py) |
+| Response | [`Planet`](./src/amritk_galaxy_staging/types/planet.py) |
 
 ```python
 planet = client.planets.retrieve(
@@ -86,8 +86,8 @@ Sometimes you make mistakes, that's fine. No worries, you can update all planets
 
 | Direction | Type |
 | --- | --- |
-| Request | [`PlanetUpdateParams`](./src/demo_api_scalar_galaxy/types/planet_update_params.py) |
-| Response | [`Planet`](./src/demo_api_scalar_galaxy/types/planet.py) |
+| Request | [`PlanetUpdateParams`](./src/amritk_galaxy_staging/types/planet_update_params.py) |
+| Response | [`Planet`](./src/amritk_galaxy_staging/types/planet.py) |
 
 ```python
 planet = client.planets.update(
@@ -113,8 +113,8 @@ Got a crazy good photo of a planet? Share it with the world!
 
 | Direction | Type |
 | --- | --- |
-| Request | [`PlanetUploadImageParams`](./src/demo_api_scalar_galaxy/types/planet_upload_image_params.py) |
-| Response | [`PlanetUploadImageResponse`](./src/demo_api_scalar_galaxy/types/planet_upload_image_response.py) |
+| Request | [`PlanetUploadImageParams`](./src/amritk_galaxy_staging/types/planet_upload_image_params.py) |
+| Response | [`PlanetUploadImageResponse`](./src/amritk_galaxy_staging/types/planet_upload_image_response.py) |
 
 ```python
 planet = client.planets.upload_image(
@@ -130,8 +130,8 @@ Celestial bodies are the planets and satellites in the Scalar Galaxy.
 
 | Direction | Type |
 | --- | --- |
-| Request | [`CelestialBodyCreateParams`](./src/demo_api_scalar_galaxy/types/celestial_body_create_params.py) |
-| Response | [`CelestialBodyCreateResponse`](./src/demo_api_scalar_galaxy/types/celestial_body_create_response.py) |
+| Request | [`CelestialBodyCreateParams`](./src/amritk_galaxy_staging/types/celestial_body_create_params.py) |
+| Response | [`CelestialBodyCreateResponse`](./src/amritk_galaxy_staging/types/celestial_body_create_response.py) |
 
 ```python
 celestial_body = client.celestial_bodies.create(
@@ -150,8 +150,8 @@ Time to create a user account, eh?
 
 | Direction | Type |
 | --- | --- |
-| Request | [`AuthenticationCreateUserParams`](./src/demo_api_scalar_galaxy/types/authentication_create_user_params.py) |
-| Response | [`User`](./src/demo_api_scalar_galaxy/types/user.py) |
+| Request | [`AuthenticationCreateUserParams`](./src/amritk_galaxy_staging/types/authentication_create_user_params.py) |
+| Response | [`User`](./src/amritk_galaxy_staging/types/user.py) |
 
 ```python
 authentication = client.authentication.create_user(
@@ -167,8 +167,8 @@ Yeah, this is the boring security stuff. Just get your super secret token and mo
 
 | Direction | Type |
 | --- | --- |
-| Request | [`AuthenticationCreateTokenParams`](./src/demo_api_scalar_galaxy/types/authentication_create_token_params.py) |
-| Response | [`Token`](./src/demo_api_scalar_galaxy/types/token.py) |
+| Request | [`AuthenticationCreateTokenParams`](./src/amritk_galaxy_staging/types/authentication_create_token_params.py) |
+| Response | [`Token`](./src/amritk_galaxy_staging/types/token.py) |
 
 ```python
 authentication = client.authentication.create_token(
@@ -183,7 +183,7 @@ Find yourself they say. That's what you can do here.
 
 | Direction | Type |
 | --- | --- |
-| Response | [`User`](./src/demo_api_scalar_galaxy/types/user.py) |
+| Response | [`User`](./src/amritk_galaxy_staging/types/user.py) |
 
 ```python
 authentication = client.authentication.list_me()

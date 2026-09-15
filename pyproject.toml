@@ -1,5 +1,5 @@
 [project]
-name = "demo-api-scalar-galaxy"
+name = "amritk-galaxy-staging"
 version = "0.1.0" # x-release-please-version
 description = "The Scalar Galaxy is an example OpenAPI document to test OpenAPI tools and libraries. It's a fictional universe with fictional planets and fictional data. Get all the data for all planets."
 readme = "README.md"
@@ -26,7 +26,7 @@ requires = ["hatchling>=1.18.0"]
 build-backend = "hatchling.build"
 
 [tool.hatch.build.targets.wheel]
-packages = ["src/demo_api_scalar_galaxy"]
+packages = ["src/amritk_galaxy_staging"]
 
 [tool.ruff]
 line-length = 120

@@ -25,7 +25,7 @@ The full API of this library can be found in [api.md](./api.md).
 ## Installation
 
 ```sh
-pip install demo-api-scalar-galaxy
+pip install amritk-galaxy-staging
 ```
 
 <br />
@@ -35,7 +35,7 @@ pip install demo-api-scalar-galaxy
 ```python
 import os
 
-from demo_api_scalar_galaxy import DemoAPIScalarGalaxy
+from amritk_galaxy_staging import DemoAPIScalarGalaxy
 
 client = DemoAPIScalarGalaxy(
     bearer_auth=os.environ.get("BEARER_AUTH"),
@@ -62,7 +62,7 @@ Every client has an `Async` counterpart (`AsyncDemoAPIScalarGalaxy`) exposing th
 ```python
 import asyncio
 
-from demo_api_scalar_galaxy import AsyncDemoAPIScalarGalaxy
+from amritk_galaxy_staging import AsyncDemoAPIScalarGalaxy
 
 
 async def main() -> None:
@@ -109,7 +109,7 @@ Declared schemes:
 Non-success responses throw generated API errors. Error objects expose status, headers, response body, and request metadata where the target runtime supports it.
 
 ```python
-from demo_api_scalar_galaxy import APIStatusError
+from amritk_galaxy_staging import APIStatusError
 
 try:
     planet = client.planets.list(
@@ -130,7 +130,7 @@ Documented error statuses: `400`, `401`, `403`, `404`, `409`, `422`.
 Configure the generated client by setting any of these options when you create it.
 
 ```python
-from demo_api_scalar_galaxy import DemoAPIScalarGalaxy
+from amritk_galaxy_staging import DemoAPIScalarGalaxy
 
 client = DemoAPIScalarGalaxy(
     timeout=60.0,
@@ -171,7 +171,7 @@ Generated clients support request timeouts and retry temporary failures such as 
 ## Logging
 
 - Set the `OFFICIAL_GALAXY_TESTING_LOG` environment variable to `info` or `debug` to enable HTTP logging.
-- Logs are emitted through the standard `logging` module under the `demo_api_scalar_galaxy` logger.
+- Logs are emitted through the standard `logging` module under the `amritk_galaxy_staging` logger.
 
 <br />
 

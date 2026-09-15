@@ -1,12 +1,12 @@
 import os
 import logging
 
-logger: logging.Logger = logging.getLogger("demo_api_scalar_galaxy")
+logger: logging.Logger = logging.getLogger("amritk_galaxy_staging")
 httpx_logger: logging.Logger = logging.getLogger("httpx")
 
 
 def _basic_config() -> None:
-    # e.g. [2023-10-05 14:12:26 - demo_api_scalar_galaxy._base_client:818 - DEBUG] HTTP Request: POST http://127.0.0.1:4010/foo/bar "200 OK"
+    # e.g. [2023-10-05 14:12:26 - amritk_galaxy_staging._base_client:818 - DEBUG] HTTP Request: POST http://127.0.0.1:4010/foo/bar "200 OK"
     logging.basicConfig(
         format="[%(asctime)s - %(name)s:%(lineno)d - %(levelname)s] %(message)s",
         datefmt="%Y-%m-%d %H:%M:%S",

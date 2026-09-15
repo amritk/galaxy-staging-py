@@ -1,16 +1,16 @@
 ---
 name: demo-api-scalar-galaxy-python-sdk
-description: "Python SDK for Demo API (Scalar Galaxy). Use when writing Python code that calls Demo API (Scalar Galaxy) with the demo-api-scalar-galaxy package: installing it, constructing and authenticating the client, and calling API operations."
+description: "Python SDK for Demo API (Scalar Galaxy). Use when writing Python code that calls Demo API (Scalar Galaxy) with the amritk-galaxy-staging package: installing it, constructing and authenticating the client, and calling API operations."
 ---
 
 # Demo API (Scalar Galaxy) Python SDK
 
-Generated Python client for Demo API (Scalar Galaxy), published as `demo-api-scalar-galaxy`. Use the generated client instead of hand-writing HTTP requests.
+Generated Python client for Demo API (Scalar Galaxy), published as `amritk-galaxy-staging`. Use the generated client instead of hand-writing HTTP requests.
 
 ## Install
 
 ```sh
-pip install demo-api-scalar-galaxy
+pip install amritk-galaxy-staging
 ```
 
 ## Client setup and authentication
@@ -18,7 +18,7 @@ pip install demo-api-scalar-galaxy
 ```python
 import os
 
-from demo_api_scalar_galaxy import DemoAPIScalarGalaxy
+from amritk_galaxy_staging import DemoAPIScalarGalaxy
 
 client = DemoAPIScalarGalaxy(
     bearer_auth=os.environ.get("BEARER_AUTH"),
@@ -40,7 +40,7 @@ Provide credentials using the options below. Environment variables are read auto
 ```python
 import os
 
-from demo_api_scalar_galaxy import DemoAPIScalarGalaxy
+from amritk_galaxy_staging import DemoAPIScalarGalaxy
 
 client = DemoAPIScalarGalaxy(
     bearer_auth=os.environ.get("BEARER_AUTH"),
@@ -61,7 +61,7 @@ Method names, parameter shapes, and response types are generated from the API de
 Non-success responses throw generated API errors. Error objects expose status, headers, response body, and request metadata where the target runtime supports it.
 
 ```python
-from demo_api_scalar_galaxy import APIStatusError
+from amritk_galaxy_staging import APIStatusError
 
 try:
     planet = client.planets.list(
