@@ -19,7 +19,7 @@ class WebhooksResource(SyncAPIResource):
             from standardwebhooks import Webhook
         except ImportError as exc:
             raise DemoAPIScalarGalaxyError(
-                "You need to install `demo-api-scalar-galaxy[webhooks]` to use this method"
+                "You need to install `amritk-galaxy-staging[webhooks]` to use this method"
             ) from exc
 
         if key is None:
@@ -49,7 +49,7 @@ class AsyncWebhooksResource(AsyncAPIResource):
             from standardwebhooks import Webhook
         except ImportError as exc:
             raise DemoAPIScalarGalaxyError(
-                "You need to install `demo-api-scalar-galaxy[webhooks]` to use this method"
+                "You need to install `amritk-galaxy-staging[webhooks]` to use this method"
             ) from exc
 
         if key is None:
